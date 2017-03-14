@@ -184,21 +184,3 @@ extension ViewController:UINavigationControllerDelegate,UIImagePickerControllerD
         self.blue = settingsVC.blue
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
