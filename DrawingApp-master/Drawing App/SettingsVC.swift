@@ -2,8 +2,8 @@
 //  SettingsVC.swift
 //  Drawing App
 //
-//  Created by roycetanjiashing on 18/12/16.
-//  Copyright © 2016 examplecompany. All rights reserved.
+//  Created by Ozan Mirza on 18/12/16.
+//  Copyright © 2016 Ozan Mirza. All rights reserved.
 //
 
 import UIKit
@@ -43,19 +43,10 @@ class SettingsVC: UIViewController {
         drawPreview(red: red, green: green, blue: blue, opacity:opacity)
         
         brushSizeSlider.value = Float(brushSize)
-        brushSizeLabel.text = String(Int(brushSize))
-        
         opacitySlider.value = Float(opacity)
-        opacityLabel.text = String(Int(opacity))
-        
         redSlider.value = Float(red)
-        redLabel.text = String(Int(redSlider.value * 255))
-        
         greenSlider.value = Float(green)
-        greenLabel.text = String(Int(greenSlider.value * 255))
-        
         blueSlider.value = Float(red)
-        blueLabel.text = String(Int(blueSlider.value * 255))
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,7 +69,7 @@ class SettingsVC: UIViewController {
     @IBAction func opacityChanged(_ sender: Any) {
         opacity = CGFloat((sender as! UISlider).value)
         drawPreview(red: red, green: green, blue: blue, opacity:opacity)
-        opacityLabel.text = String(Int(opacity))
+        opacityLabel.text = String(format: "%\(0.2)f", opacity)
     }
     @IBAction func redSliderChanged(_ sender: Any) {
         

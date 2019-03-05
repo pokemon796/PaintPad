@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     
     var tool:UIImageView!
     var isDrawing = true
+    var temp:CGFloat = 5
     var brushSize:CGFloat = 5
     var selectedImage:UIImage!
     
@@ -44,7 +45,10 @@ class ViewController: UIViewController {
             colors.subviews[i].layer.masksToBounds = true
         }
         
-        highlight.center.x = colors.subviews[0].center.x + colors.frame.origin.x
+        DispatchQueue.main.async {
+            self.highlight.center.x = self.colors.frame.origin.x + 10
+            self.highlight.frame.origin.y = self.colors_bg.frame.origin.y + self.colors_bg.frame.size.height + 2
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -104,6 +108,7 @@ class ViewController: UIViewController {
     }
     @IBAction func reset(_ sender: AnyObject) {
         self.imageView.image = nil
+        print(self.highlight.center.x)
     }
     @IBAction func save(_ sender: AnyObject) {
         
@@ -130,21 +135,22 @@ class ViewController: UIViewController {
         
     }
     @IBAction func erase(_ sender: AnyObject) {
-        
         if (isDrawing) {
             (red,green,blue) = (1,1,1)
             tool.image = #imageLiteral(resourceName: "EraserIcon")
             toolIcon.setImage(#imageLiteral(resourceName: "paintBrush"), for: .normal)
-            
+            self.temp = self.brushSize
+            self.brushSize = 20
         } else {
             (red,green,blue) = (0,0,0)
             tool.image = #imageLiteral(resourceName: "paintBrush")
             toolIcon.setImage(#imageLiteral(resourceName: "EraserIcon"), for: .normal)
+            self.brushSize = self.temp
         }
         
         isDrawing = !isDrawing
-        
     }
+    
     @IBAction func settings(_ sender: AnyObject) {
     }
     
@@ -191,8 +197,8 @@ class ViewController: UIViewController {
 }
 
 extension ViewController:UINavigationControllerDelegate,UIImagePickerControllerDelegate,SettingsVCDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let imagePicked = info[.originalImage] as? UIImage {
             // We got the user's image
             self.selectedImage = imagePicked
             self.imageView.image = selectedImage
@@ -212,4 +218,14 @@ extension ViewController:UINavigationControllerDelegate,UIImagePickerControllerD
         self.alpha = settingsVC.opacity
         self.brushSize = settingsVC.brushSize
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }
