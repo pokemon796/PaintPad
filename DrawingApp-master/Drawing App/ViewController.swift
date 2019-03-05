@@ -12,6 +12,10 @@ class ViewController: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var toolIcon: UIButton!
+    @IBOutlet weak var colors: UIStackView!
+    @IBOutlet weak var tools: UIStackView!
+    @IBOutlet weak var colors_bg: UIView!
+    @IBOutlet weak var highlight: UIView!
     
     var lastPoint = CGPoint.zero
     var swiped = false
@@ -19,9 +23,11 @@ class ViewController: UIViewController {
     var red:CGFloat = 0.0
     var green:CGFloat = 0.0
     var blue:CGFloat = 0.0
+    var alpha:CGFloat = 1.0
     
     var tool:UIImageView!
     var isDrawing = true
+    var brushSize:CGFloat = 5
     var selectedImage:UIImage!
     
     override func viewDidLoad() {
@@ -32,12 +38,23 @@ class ViewController: UIViewController {
         tool.frame = CGRect(x: self.view.bounds.size.width, y: self.view.bounds.size.height, width: 38, height: 38)
         tool.image = #imageLiteral(resourceName: "paintBrush")
         self.view.addSubview(tool)
-    
+        
+        for i in 0..<colors.subviews.count {
+            colors.subviews[i].layer.cornerRadius = colors.subviews[i].frame.size.height / 2
+            colors.subviews[i].layer.masksToBounds = true
+        }
+        
+        highlight.center.x = colors.subviews[0].center.x + colors.frame.origin.x
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         swiped = false
-        
+        UIView.animate(withDuration: 0.5) { 
+            self.colors.alpha = 0
+            self.colors_bg.alpha = 0
+            self.tools.alpha = 0
+            self.highlight.alpha = 0
+        }
         if let touch = touches.first {
             lastPoint = touch.location(in: self.view)
         }
@@ -54,8 +71,8 @@ class ViewController: UIViewController {
         
         context?.setBlendMode(CGBlendMode.normal)
         context?.setLineCap(CGLineCap.round)
-        context?.setLineWidth(5)
-        context?.setStrokeColor(UIColor(red: red, green: green, blue: blue, alpha: 1.0).cgColor)
+        context?.setLineWidth(brushSize)
+        context?.setStrokeColor(UIColor(red: red, green: green, blue: blue, alpha: alpha).cgColor)
         
         context?.strokePath()
         
@@ -75,6 +92,12 @@ class ViewController: UIViewController {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIView.animate(withDuration: 0.5) {
+            self.colors.alpha = 1
+            self.colors_bg.alpha = 1
+            self.tools.alpha = 1
+            self.highlight.alpha = 1
+        }
         if !swiped {
             drawLines(fromPoint: lastPoint, toPoint: lastPoint)
         }
@@ -126,6 +149,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func colorsPicked(_ sender: AnyObject) {
+        UIView.animate(withDuration: 1) {
+            self.highlight.center.x = sender.center.x + self.colors.frame.origin.x
+        }
+        
         if sender.tag == 0 {
             (red,green,blue) = (1,0,0)
         } else if sender.tag == 1 {
@@ -158,9 +185,9 @@ class ViewController: UIViewController {
         settingsVC.red = red
         settingsVC.green = green
         settingsVC.blue = blue
+        settingsVC.opacity = alpha
+        settingsVC.brushSize = brushSize
     }
-    
-    
 }
 
 extension ViewController:UINavigationControllerDelegate,UIImagePickerControllerDelegate,SettingsVCDelegate {
@@ -182,5 +209,7 @@ extension ViewController:UINavigationControllerDelegate,UIImagePickerControllerD
         self.red = settingsVC.red
         self.green = settingsVC.green
         self.blue = settingsVC.blue
+        self.alpha = settingsVC.opacity
+        self.brushSize = settingsVC.brushSize
     }
 }
