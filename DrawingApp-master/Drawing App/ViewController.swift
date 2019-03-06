@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     var lastPoint = CGPoint.zero
     var swiped = false
+    var isInMenu = false
     
     var red:CGFloat = 0.0
     var green:CGFloat = 0.0
@@ -52,15 +53,25 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        swiped = false
-        UIView.animate(withDuration: 0.5) { 
-            self.colors.alpha = 0
-            self.colors_bg.alpha = 0
-            self.tools.alpha = 0
-            self.highlight.alpha = 0
-        }
-        if let touch = touches.first {
-            lastPoint = touch.location(in: self.view)
+        if !isInMenu {
+            swiped = false
+            UIView.animate(withDuration: 0.5) {
+                self.colors.alpha = 0
+                self.colors_bg.alpha = 0
+                self.tools.alpha = 0
+                self.highlight.alpha = 0
+            }
+            if let touch = touches.first {
+                lastPoint = touch.location(in: self.view)
+            }
+        } else {
+            UIView.animate(withDuration: 0.5) {
+                self.view.subviews.last!.alpha = 0
+            }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                self.view.subviews.last!.removeFromSuperview()
+                self.isInMenu = false
+            }
         }
     }
     
@@ -111,29 +122,72 @@ class ViewController: UIViewController {
         print(self.highlight.center.x)
     }
     @IBAction func save(_ sender: AnyObject) {
-        
-        let actionSheet = UIAlertController(title: "Pick your option", message: "", preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Pick an image", style: .default, handler: { (_) in
-            
-            let imagePicker = UIImagePickerController()
-            imagePicker.sourceType = .photoLibrary
-            imagePicker.allowsEditing = false
-            imagePicker.delegate = self
-            
-            self.present(imagePicker, animated: true, completion: nil)
-            
-        }))
-        actionSheet.addAction(UIAlertAction(title: "Save your drawing", style: .default, handler: { (_) in
-            if let image = self.imageView.image {
-                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-            }
-        }))
-        
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        
-        present(actionSheet, animated: true, completion: nil)
-        
+        isInMenu = true
+        let bg = UIVisualEffectView(frame: self.view.bounds)
+        bg.effect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        bg.alpha = 0
+        self.view.addSubview(bg)
+        let bg_sub = UIView(frame: CGRect(x: 16, y: bg.frame.size.height, width: 300, height: 300))
+        bg_sub.center.x = bg.center.x
+        bg.contentView.addSubview(bg_sub)
+        let drawer = UIButton(frame: CGRect(x: 0, y: 0, width: bg_sub.frame.size.width, height: 150))
+        drawer.backgroundColor = UIColor(red: (66 / 255), green: (244 / 255), blue: (178 / 255), alpha: 1)
+        drawer.setTitle("Draw over an image", for: UIControl.State.normal)
+        drawer.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        drawer.titleLabel?.font = UIFont.systemFont(ofSize: 35)
+        drawer.layer.cornerRadius = 20
+        drawer.layer.masksToBounds = true
+        drawer.addTarget(self, action: #selector(self.addImage(_:)), for: UIControl.Event.touchUpInside)
+        bg_sub.addSubview(drawer)
+        let save = UIButton(frame: CGRect(x: 0, y: bg_sub.frame.size.height / 2, width: bg_sub.frame.size.width, height: 150))
+        save.backgroundColor = UIColor(red: (75 / 255), green: (66 / 255), blue: (244 / 255), alpha: 1)
+        save.setTitle("Save your image", for: UIControl.State.normal)
+        save.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        save.layer.cornerRadius = 20
+        save.layer.masksToBounds = true
+        save.titleLabel?.font = UIFont.systemFont(ofSize: 35)
+        save.addTarget(self, action: #selector(self.saveDrawing(_:)), for: UIControl.Event.touchUpInside)
+        bg_sub.addSubview(save)
+        UIView.animate(withDuration: 0.5) {
+            bg.alpha = 1
+            bg_sub.center = bg.center
+        }
     }
+    
+    @objc func addImage(_ sender: UIButton!) {
+        UIView.animate(withDuration: 0.5) {
+            sender.superview!.superview!.superview!.alpha = 0
+        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+            self.view.subviews.last!.removeFromSuperview()
+            self.isInMenu = false
+        }
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = false
+        imagePicker.delegate = self
+        
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @objc func saveDrawing(_ sender: UIButton!) {
+        if let image = self.imageView.image {
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+            
+            sender.setTitle("Success!", for: UIControl.State.normal)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                UIView.animate(withDuration: 0.5) {
+                    sender.superview!.superview!.superview!.alpha = 0
+                }
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                    self.view.subviews.last!.removeFromSuperview()
+                    self.isInMenu = false
+                }
+            }
+        }
+    }
+    
     @IBAction func erase(_ sender: AnyObject) {
         if (isDrawing) {
             (red,green,blue) = (1,1,1)
