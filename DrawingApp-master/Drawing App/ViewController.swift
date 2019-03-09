@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     var swiped = false
     var isInMenu = false
     
+    var currentColor:UIButton!
     var red:CGFloat = 0.0
     var green:CGFloat = 0.0
     var blue:CGFloat = 0.0
@@ -50,6 +51,8 @@ class ViewController: UIViewController {
             self.highlight.center.x = self.colors.frame.origin.x + 10
             self.highlight.frame.origin.y = self.colors_bg.frame.origin.y + self.colors_bg.frame.size.height + 2
         }
+        
+        currentColor = colors.subviews[0] as? UIButton
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -209,6 +212,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func colorsPicked(_ sender: AnyObject) {
+        print("yepper pepper")
+        currentColor = sender as? UIButton
         UIView.animate(withDuration: 1) {
             self.highlight.center.x = sender.center.x + self.colors.frame.origin.x
         }
@@ -247,6 +252,15 @@ class ViewController: UIViewController {
         settingsVC.blue = blue
         settingsVC.opacity = alpha
         settingsVC.brushSize = brushSize
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil) { _ in
+            self.highlight.frame.origin.y = self.colors_bg.frame.size.height + self.colors_bg.frame.origin.y + 2
+            self.colorsPicked(self.currentColor)
+            print("The thigs got ran?")
+        }
     }
 }
 
