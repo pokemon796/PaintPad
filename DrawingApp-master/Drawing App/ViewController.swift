@@ -208,11 +208,9 @@ class ViewController: UIViewController {
         isDrawing = !isDrawing
     }
     
-    @IBAction func settings(_ sender: AnyObject) {
-    }
+    @IBAction func settings(_ sender: AnyObject) {}
     
     @IBAction func colorsPicked(_ sender: AnyObject) {
-        print("yepper pepper")
         currentColor = sender as? UIButton
         UIView.animate(withDuration: 1) {
             self.highlight.center.x = sender.center.x + self.colors.frame.origin.x
