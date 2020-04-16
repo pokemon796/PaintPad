@@ -7,30 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24864AB2ABEE1E5C51DD5209 /* Pods_Drawing_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7BE49E40736FA7A035A6F1 /* Pods_Drawing_App.framework */; };
 		BF506E091E06DB410090FEAB /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF506E081E06DB410090FEAB /* SettingsVC.swift */; };
 		BFB66C171D8D2F4500411430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB66C161D8D2F4500411430 /* AppDelegate.swift */; };
 		BFB66C191D8D2F4500411430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB66C181D8D2F4500411430 /* ViewController.swift */; };
 		BFB66C1C1D8D2F4500411430 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB66C1A1D8D2F4500411430 /* Main.storyboard */; };
 		BFB66C1E1D8D2F4500411430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFB66C1D1D8D2F4500411430 /* Assets.xcassets */; };
 		BFB66C211D8D2F4500411430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB66C1F1D8D2F4500411430 /* LaunchScreen.storyboard */; };
-		F7014B4E22E1878D007ADBCA /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7014B4D22E1878D007ADBCA /* PhotosUI.framework */; };
-		F7014B5022E1878D007ADBCA /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7014B4F22E1878D007ADBCA /* Photos.framework */; };
-		F7014B5322E1878D007ADBCA /* PhotoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7014B5222E1878D007ADBCA /* PhotoEditingViewController.swift */; };
-		F7014B5622E1878D007ADBCA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7014B5422E1878D007ADBCA /* MainInterface.storyboard */; };
-		F7014B5A22E1878D007ADBCA /* PaintPad Editor.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F7014B4B22E1878D007ADBCA /* PaintPad Editor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F7014B5F22E18C18007ADBCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFB66C1D1D8D2F4500411430 /* Assets.xcassets */; };
 		F741EBF8222EFB1200D4BC8C /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F741EBF7222EFB1200D4BC8C /* DrawingView.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		F7014B5822E1878D007ADBCA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFB66C0B1D8D2F4500411430 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F7014B4A22E1878D007ADBCA;
-			remoteInfo = "PaintPad Editor";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		F7014B5E22E1878D007ADBCA /* Embed App Extensions */ = {
@@ -39,7 +24,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F7014B5A22E1878D007ADBCA /* PaintPad Editor.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +31,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3576C5CAEBAC337FFFFF1940 /* Pods-Drawing App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drawing App.debug.xcconfig"; path = "Target Support Files/Pods-Drawing App/Pods-Drawing App.debug.xcconfig"; sourceTree = "<group>"; };
+		4E2EFF8B7C1F6EF2CF28A6FC /* Pods-PaintPad Editor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaintPad Editor.debug.xcconfig"; path = "Target Support Files/Pods-PaintPad Editor/Pods-PaintPad Editor.debug.xcconfig"; sourceTree = "<group>"; };
+		5A7BE49E40736FA7A035A6F1 /* Pods_Drawing_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drawing_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A1D18298D1EBC9E68ED504C /* Pods_PaintPad_Editor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaintPad_Editor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF506E081E06DB410090FEAB /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		BFB66C131D8D2F4500411430 /* Drawing App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drawing App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB66C161D8D2F4500411430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,13 +43,10 @@
 		BFB66C1D1D8D2F4500411430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFB66C201D8D2F4500411430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BFB66C221D8D2F4500411430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F7014B4B22E1878D007ADBCA /* PaintPad Editor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PaintPad Editor.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE889362460B57E42F55E5ED /* Pods-PaintPad Editor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaintPad Editor.release.xcconfig"; path = "Target Support Files/Pods-PaintPad Editor/Pods-PaintPad Editor.release.xcconfig"; sourceTree = "<group>"; };
+		F599D4ACDE17DC34A07F122B /* Pods-Drawing App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drawing App.release.xcconfig"; path = "Target Support Files/Pods-Drawing App/Pods-Drawing App.release.xcconfig"; sourceTree = "<group>"; };
 		F7014B4D22E1878D007ADBCA /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		F7014B4F22E1878D007ADBCA /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		F7014B5222E1878D007ADBCA /* PhotoEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditingViewController.swift; sourceTree = "<group>"; };
-		F7014B5522E1878D007ADBCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		F7014B5722E1878D007ADBCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F7014B6022E190DE007ADBCA /* PaintPad Editor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "PaintPad Editor.entitlements"; sourceTree = "<group>"; };
 		F7014B6122E191C3007ADBCA /* Drawing App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Drawing App.entitlements"; sourceTree = "<group>"; };
 		F741EBF7222EFB1200D4BC8C /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,28 +56,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F7014B4822E1878D007ADBCA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F7014B4E22E1878D007ADBCA /* PhotosUI.framework in Frameworks */,
-				F7014B5022E1878D007ADBCA /* Photos.framework in Frameworks */,
+				24864AB2ABEE1E5C51DD5209 /* Pods_Drawing_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		748618670307682366FF0EF5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3576C5CAEBAC337FFFFF1940 /* Pods-Drawing App.debug.xcconfig */,
+				F599D4ACDE17DC34A07F122B /* Pods-Drawing App.release.xcconfig */,
+				4E2EFF8B7C1F6EF2CF28A6FC /* Pods-PaintPad Editor.debug.xcconfig */,
+				DE889362460B57E42F55E5ED /* Pods-PaintPad Editor.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BFB66C0A1D8D2F4500411430 = {
 			isa = PBXGroup;
 			children = (
 				BFB66C151D8D2F4500411430 /* Drawing App */,
-				F7014B5122E1878D007ADBCA /* PaintPad Editor */,
 				F7014B4C22E1878D007ADBCA /* Frameworks */,
 				BFB66C141D8D2F4500411430 /* Products */,
+				748618670307682366FF0EF5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				BFB66C131D8D2F4500411430 /* Drawing App.app */,
-				F7014B4B22E1878D007ADBCA /* PaintPad Editor.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,19 +113,10 @@
 			children = (
 				F7014B4D22E1878D007ADBCA /* PhotosUI.framework */,
 				F7014B4F22E1878D007ADBCA /* Photos.framework */,
+				5A7BE49E40736FA7A035A6F1 /* Pods_Drawing_App.framework */,
+				7A1D18298D1EBC9E68ED504C /* Pods_PaintPad_Editor.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F7014B5122E1878D007ADBCA /* PaintPad Editor */ = {
-			isa = PBXGroup;
-			children = (
-				F7014B6022E190DE007ADBCA /* PaintPad Editor.entitlements */,
-				F7014B5222E1878D007ADBCA /* PhotoEditingViewController.swift */,
-				F7014B5422E1878D007ADBCA /* MainInterface.storyboard */,
-				F7014B5722E1878D007ADBCA /* Info.plist */,
-			);
-			path = "PaintPad Editor";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,37 +126,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFB66C251D8D2F4500411430 /* Build configuration list for PBXNativeTarget "Drawing App" */;
 			buildPhases = (
+				3A3809F67E0CA89F2E785ECF /* [CP] Check Pods Manifest.lock */,
 				BFB66C0F1D8D2F4500411430 /* Sources */,
 				BFB66C101D8D2F4500411430 /* Frameworks */,
 				BFB66C111D8D2F4500411430 /* Resources */,
 				F7014B5E22E1878D007ADBCA /* Embed App Extensions */,
+				14C5EB74C35BFBC7BE97662C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F7014B5922E1878D007ADBCA /* PBXTargetDependency */,
 			);
 			name = "Drawing App";
 			productName = "Drawing App";
 			productReference = BFB66C131D8D2F4500411430 /* Drawing App.app */;
 			productType = "com.apple.product-type.application";
-		};
-		F7014B4A22E1878D007ADBCA /* PaintPad Editor */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F7014B5D22E1878D007ADBCA /* Build configuration list for PBXNativeTarget "PaintPad Editor" */;
-			buildPhases = (
-				F7014B4722E1878D007ADBCA /* Sources */,
-				F7014B4822E1878D007ADBCA /* Frameworks */,
-				F7014B4922E1878D007ADBCA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "PaintPad Editor";
-			productName = "PaintPad Editor";
-			productReference = F7014B4B22E1878D007ADBCA /* PaintPad Editor.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -187,30 +149,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Ozan Mirza";
 				TargetAttributes = {
 					BFB66C121D8D2F4500411430 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = QXNMG5R4EQ;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
-							};
-						};
-					};
-					F7014B4A22E1878D007ADBCA = {
-						CreatedOnToolsVersion = 10.1;
-						DevelopmentTeam = QXNMG5R4EQ;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-							com.apple.DataProtection = {
-								enabled = 0;
 							};
 						};
 					};
@@ -218,7 +167,7 @@
 			};
 			buildConfigurationList = BFB66C0E1D8D2F4500411430 /* Build configuration list for PBXProject "Drawing App" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -230,7 +179,6 @@
 			projectRoot = "";
 			targets = (
 				BFB66C121D8D2F4500411430 /* Drawing App */,
-				F7014B4A22E1878D007ADBCA /* PaintPad Editor */,
 			);
 		};
 /* End PBXProject section */
@@ -246,16 +194,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F7014B4922E1878D007ADBCA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14C5EB74C35BFBC7BE97662C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7014B5F22E18C18007ADBCA /* Assets.xcassets in Resources */,
-				F7014B5622E1878D007ADBCA /* MainInterface.storyboard in Resources */,
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Drawing App/Pods-Drawing App-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Drawing App/Pods-Drawing App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+		3A3809F67E0CA89F2E785ECF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Drawing App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BFB66C0F1D8D2F4500411430 /* Sources */ = {
@@ -269,23 +257,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F7014B4722E1878D007ADBCA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F7014B5322E1878D007ADBCA /* PhotoEditingViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F7014B5922E1878D007ADBCA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F7014B4A22E1878D007ADBCA /* PaintPad Editor */;
-			targetProxy = F7014B5822E1878D007ADBCA /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BFB66C1A1D8D2F4500411430 /* Main.storyboard */ = {
@@ -304,14 +276,6 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		F7014B5422E1878D007ADBCA /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F7014B5522E1878D007ADBCA /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -319,6 +283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -377,6 +342,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -426,97 +392,48 @@
 		};
 		BFB66C261D8D2F4500411430 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3576C5CAEBAC337FFFFF1940 /* Pods-Drawing App.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Drawing App/Drawing App.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = QXNMG5R4EQ;
 				INFOPLIST_FILE = "Drawing App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = BurcuMirza.PaintPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		BFB66C271D8D2F4500411430 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F599D4ACDE17DC34A07F122B /* Pods-Drawing App.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Drawing App/Drawing App.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = QXNMG5R4EQ;
 				INFOPLIST_FILE = "Drawing App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = BurcuMirza.PaintPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		F7014B5B22E1878D007ADBCA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "PaintPad Editor/PaintPad Editor.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QXNMG5R4EQ;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "PaintPad Editor/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "BurcuMirza.PaintPad.PaintPad-Editor";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		F7014B5C22E1878D007ADBCA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "PaintPad Editor/PaintPad Editor.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QXNMG5R4EQ;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "PaintPad Editor/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "BurcuMirza.PaintPad.PaintPad-Editor";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -538,15 +455,6 @@
 			buildConfigurations = (
 				BFB66C261D8D2F4500411430 /* Debug */,
 				BFB66C271D8D2F4500411430 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F7014B5D22E1878D007ADBCA /* Build configuration list for PBXNativeTarget "PaintPad Editor" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F7014B5B22E1878D007ADBCA /* Debug */,
-				F7014B5C22E1878D007ADBCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, GADBannerViewDelegate {
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var toolIcon: UIButton!
@@ -16,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var tools: UIStackView!
     @IBOutlet weak var colors_bg: UIView!
     @IBOutlet weak var highlight: UIView!
+    
+    var bannerView: GADBannerView!
     
     var lastPoint = CGPoint.zero
     var swiped = false
@@ -53,6 +56,12 @@ class ViewController: UIViewController {
         }
         
         currentColor = colors.subviews[0] as? UIButton
+        
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView.adUnitID = "ca-app-pub-7352520433824678/7349961813"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -260,6 +269,17 @@ class ViewController: UIViewController {
             print("The thigs got ran?")
         }
     }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        bannerView.addConstaintsToSuperview(leftOffset: (view.frame.size.width / 2) - 160, topOffset: view.frame.size.height - 50)
+    }
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+      // Add banner to view and add constraints as above.
+      addBannerViewToView(bannerView)
+    }
 }
 
 extension ViewController:UINavigationControllerDelegate,UIImagePickerControllerDelegate,SettingsVCDelegate {
@@ -294,4 +314,51 @@ fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [U
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
 	return input.rawValue
+}
+
+extension UIView {
+
+    public func addConstaintsToSuperview(leftOffset: CGFloat, topOffset: CGFloat) {
+
+        self.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint(item: self,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: self.superview,
+                           attribute: .leading,
+                           multiplier: 1,
+                           constant: leftOffset).isActive = true
+
+        NSLayoutConstraint(item: self,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: self.superview,
+                           attribute: .top,
+                           multiplier: 1,
+                           constant: topOffset).isActive = true
+    }
+
+    public func addConstaints(height: CGFloat, width: CGFloat) {
+
+        self.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint(item: self,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .notAnAttribute,
+                           multiplier: 1,
+                           constant: height).isActive = true
+        
+
+        NSLayoutConstraint(item: self,
+                           attribute: .width,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .notAnAttribute,
+                           multiplier: 1,
+                           constant: width).isActive = true
+        
+    }
 }
